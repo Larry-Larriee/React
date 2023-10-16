@@ -1,27 +1,30 @@
 import React from 'react'
+import "./App.css"
 
-import Images from "./components/Images.js";
+import Home from "./content/Home.js"
+import About from "./content/About.js"
 
-import html from "./content/html.png";
-import css from "./content/css.png";
-import js from "./content/js.png";
-import react from "./content/react.png";
-import node from "./content/node.png";
-import python from "./content/python.png";
+import { Route, Routes } from "react-router-dom"
 
-import "./App.css";
-
+// Countdown Timer
 export default function App() {
-  return (
-    <div className="container">
 
-      <Images 
-        one={html} 
-        two={css} 
-        three={js} 
-      />
-      <Images one={react} two={node} three={python} />
+  return(
+    <>
+      <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About 👋</a></li>
+          </ul>
+      </nav>
 
-    </div>
-  )
+      <main>  
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </main>
+
+    </>
+  );
 }
